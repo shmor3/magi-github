@@ -1,0 +1,19 @@
+[package]
+name = "magi-github"
+version = "0.1.0"
+edition = "2021"
+description = "MAGI MCP plugin for GitHub API integration"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+magi-pdk = { path = "../magi/magi-pdk", features = ["guest"] }
+extism-pdk = "1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true
